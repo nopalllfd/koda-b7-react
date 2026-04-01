@@ -11,23 +11,23 @@ const decreament = (counter) => {
   return counter - 1;
 };
 
-export const IncButton = ({ setCounter }) => {
+export const IncButton = ({ setCounter, textButton }) => {
   return (
     <button
       className="w-40 py-5 mx-10 text-black bg-green-400 border btn rounded-xl"
       onClick={() => setCounter((counter) => increament(counter))}
     >
-      Increament
+      {textButton}
     </button>
   );
 };
-export const DecButton = ({ setCounter }) => {
+export const DecButton = ({ setCounter, textButton }) => {
   return (
     <button
       className="w-40 py-5 mx-10 text-black bg-red-300 border btn rounded-xl"
       onClick={() => setCounter((counter) => decreament(counter))}
     >
-      Decreament
+      {textButton}
     </button>
   );
 };
