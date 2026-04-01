@@ -1,11 +1,36 @@
+import { useState } from 'react';
+
 export const Form = ({ onAddProduct }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    sum: '',
+    category: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newProduct = {
+      name: e.target.name.value,
+      sum: e.target.sum.value,
+      category: e.target.category.value,
+    };
+    console.log(newProduct);
+
+    onAddProduct(newProduct);
+  };
   return (
     <form
-      onSubmit={onAddProduct}
+      onSubmit={handleSubmit}
       action=""
       className=""
     >
-      <div className="input-group flex flex-col gap-2 flex-1">
+      <div className="input-group justify-start absolute top-70 left-50 flex flex-col gap-2 flex-1">
         <label htmlFor="name">Nama Produk : </label>
         <input
           type="text"
@@ -19,6 +44,8 @@ export const Form = ({ onAddProduct }) => {
           type="number"
           name="sum"
           id="sum"
+          onChange={handleChange}
+          value={formData.sum}
           required
           className="border-1 rounded-md px-2 py-1"
         />

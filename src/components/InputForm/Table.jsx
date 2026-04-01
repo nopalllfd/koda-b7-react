@@ -1,4 +1,5 @@
 export const Table = ({ product }) => {
+  console.log(product.map((p) => p));
   return (
     <div className="mt-10 relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
       <table className="w-full text-sm text-left rtl:text-right text-body">
