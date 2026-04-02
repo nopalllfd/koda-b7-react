@@ -28,44 +28,69 @@ export const Form = ({ onAddProduct }) => {
     <form
       onSubmit={handleSubmit}
       action=""
-      className=""
+      className="max-w-md p-6 bg-amber-50 border border-amber-200 rounded-lg w-full"
     >
-      <div className="input-group justify-start absolute top-60 left-50 flex flex-col gap-2 flex-1">
-        <label htmlFor="name">Nama Produk : </label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          required
-          className="border-1 rounded-md px-2 py-1"
-        />
-        <label htmlFor="sum">Jumlah : </label>
-        <input
-          type="number"
-          name="sum"
-          id="sum"
-          onChange={handleChange}
-          value={formData.sum}
-          required
-          className="border-1 rounded-md px-2 py-1"
-        />
-        <label htmlFor="category">Kategori : </label>
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1.5">
+          <label
+            htmlFor="name"
+            className="text-sm font-semibold text-gray-800"
+          >
+            Nama Produk :
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm outline-none"
+          />
+        </div>
 
-        <select
-          name="category"
-          id="category"
-          className="border p-1 rounded-md"
-        >
-          <option value="Foods">foods</option>
-          <option value="Beverages">beverages</option>
-          <option value="Tools">tools</option>
-        </select>
-        <button
-          type="submit"
-          className="btn border-2 p-1 rounded-md bg-amber-200 cursor-pointer"
-        >
-          Masukkan Barang
-        </button>
+        <div className="flex flex-col gap-1.5">
+          <label
+            htmlFor="sum"
+            className="text-sm font-semibold text-gray-800"
+          >
+            Jumlah :
+          </label>
+          <input
+            type="number"
+            name="sum"
+            id="sum"
+            onChange={handleChange}
+            value={formData.sum}
+            required
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm outline-none"
+          />
+        </div>
+
+        <div className="flex flex-col gap-1.5">
+          <label
+            htmlFor="category"
+            className="text-sm font-semibold text-gray-800"
+          >
+            Kategori :
+          </label>
+          <select
+            name="category"
+            id="category"
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm outline-none bg-white"
+          >
+            <option value="Foods">Foods</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Tools">Tools</option>
+          </select>
+        </div>
+
+        <div className="pt-2">
+          <button
+            type="submit"
+            className="w-full bg-amber-600 text-white font-semibold py-2 rounded-md text-sm cursor-pointer"
+          >
+            Masukkan Barang
+          </button>
+        </div>
       </div>
     </form>
   );

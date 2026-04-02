@@ -1,46 +1,36 @@
 export const Table = ({ product }) => {
-  console.log(product.map((p) => p));
   return (
-    <div className="mt-10 relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
-      <table className="w-full text-sm text-left rtl:text-right text-body">
-        <thead className="bg-red-300 text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+    <div className="w-full border border-amber-200 rounded-lg overflow-hidden bg-amber-50">
+      <table className="w-full text-left border-collapse">
+        <thead className="bg-amber-100 border-b border-amber-200">
           <tr>
-            <th
-              scope="col"
-              className="px-6 py-3 font-medium border-e"
-            >
-              Product name
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 font-medium border-e"
-            >
-              Stock
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 font-medium border-e"
-            >
-              Category
-            </th>
+            <th className="px-4 py-3 text-sm font-semibold text-gray-800 border-r border-amber-200">Product name</th>
+            <th className="px-4 py-3 text-sm font-semibold text-gray-800 border-r border-amber-200 text-center w-24">Stock</th>
+            <th className="px-4 py-3 text-sm font-semibold text-gray-800">Category</th>
           </tr>
         </thead>
-        <tbody className="">
-          {product.map((p, i) => (
-            <tr
-              key={i}
-              className="bg-neutral-primary border-b border-default"
-            >
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-heading whitespace-nowrap border-e"
+        <tbody>
+          {product && product.length > 0 ? (
+            product.map((p, i) => (
+              <tr
+                key={i}
+                className="border-b border-amber-200 last:border-b-0"
               >
-                {p.name}
-              </th>
-              <td className="px-6 py-4 border-e">{p.sum}</td>
-              <td className="px-6 py-4 border-e">{p.category}</td>
+                <td className="px-4 py-3 text-sm text-gray-800 border-r border-amber-200 whitespace-nowrap">{p.name}</td>
+                <td className="px-4 py-3 text-sm text-gray-800 border-r border-amber-200 text-center">{p.sum}</td>
+                <td className="px-4 py-3 text-sm text-gray-800">{p.category}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td
+                colSpan="3"
+                className="px-4 py-8 text-sm text-center text-gray-500"
+              >
+                Belum ada produk
+              </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>

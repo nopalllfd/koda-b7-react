@@ -4,6 +4,7 @@ import Review from './Review';
 import { storeData } from './data';
 import { Table } from './Table';
 import { getData } from './data';
+import Footer from '../Counter/components/Footer';
 
 function Home() {
   const get = getData();
@@ -15,13 +16,16 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1 flex flex-col items-center pt-10 px-4 gap-8">
-        <Review onAddData={onAddData} />
-        <Table datas={data} />
-      </main>
-    </div>
+    <>
+      <div className="min-h-screen flex flex-col p-0 m-0">
+        <Header />
+        <main className="flex-1 flex flex-col items-center pt-10 px-4 gap-8">
+          <Review onAddData={onAddData} />
+          <Table datas={data} />
+        </main>
+      </div>
+      <Footer />
+    </>
   );
 }
 

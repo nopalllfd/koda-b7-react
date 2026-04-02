@@ -14,12 +14,12 @@ function Review({ onAddData }) {
     prevData.push(data);
     onAddData(prevData);
   };
-
+  const rateMap = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <form
       onSubmit={handleSubmit}
       action=""
-      className="max-w-md p-6 bg-amber-50 border border-amber-200 rounded-lg"
+      className="w-1/2 p-6 bg-amber-50 border border-amber-200 rounded-lg"
     >
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-1.5">
@@ -40,53 +40,23 @@ function Review({ onAddData }) {
         <div className="flex flex-col gap-1.5">
           <label className="text-sm font-semibold text-gray-800">Review :</label>
           <div className="flex items-center gap-5">
-            <div className="flex items-center gap-1.5">
-              <input
-                id="two"
-                value={2}
-                name="review"
-                type="radio"
-                className="w-4 h-4"
-              />
-              <label
-                htmlFor="two"
-                className="text-sm text-gray-700"
-              >
-                2
-              </label>
-            </div>
-
-            <div className="flex items-center gap-1.5">
-              <input
-                id="five"
-                value={5}
-                name="review"
-                type="radio"
-                className="w-4 h-4"
-              />
-              <label
-                htmlFor="five"
-                className="text-sm text-gray-700"
-              >
-                5
-              </label>
-            </div>
-
-            <div className="flex items-center gap-1.5">
-              <input
-                id="eight"
-                value={8}
-                name="review"
-                type="radio"
-                className="w-4 h-4"
-              />
-              <label
-                htmlFor="eight"
-                className="text-sm text-gray-700"
-              >
-                8
-              </label>
-            </div>
+            {rateMap.map((item) => (
+              <div className="flex items-center gap-1.5">
+                <input
+                  id={item}
+                  value={item}
+                  name="review"
+                  type="radio"
+                  className="w-4 h-4"
+                />
+                <label
+                  htmlFor={item}
+                  className="text-sm text-gray-700"
+                >
+                  {item}
+                </label>
+              </div>
+            ))}
           </div>
         </div>
 

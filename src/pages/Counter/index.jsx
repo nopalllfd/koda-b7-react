@@ -1,6 +1,7 @@
 import { DecButton, IncButton } from './components/Button';
 import { useState } from 'react';
 import Header from './components/header';
+import Footer from './components/Footer';
 
 export const Counter = () => {
   const [counter, setCounter] = useState(0);
@@ -8,13 +9,14 @@ export const Counter = () => {
   const increamentText = counter !== 10 ? 'Increament' : 'Cannot Increase (10)';
   const decreamentText = counter !== 0 ? 'Decreament' : 'Cannot decrease(0)';
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="px-8 mt-8">
-        <h1 className="text-4xl bg-blue-400 text-white text-center  py-2 rounded-md">Minitask - 1</h1>
+      <main className="flex-1 flex flex-col items-center pt-10 px-4 gap-6 w-full">
+        <div className="w-full max-w-md"></div>
 
-        <section className="flex flex-col items-center p-10 justify-center w-full counter">
-          <section className="buttons">
+        <section className="flex flex-col items-center p-8 border border-amber-200 rounded-lg bg-amber-50 w-full max-w-md gap-6">
+          <p className="text-3xl font-semibold text-gray-800">Counter : {counter}</p>
+          <section className="flex gap-4">
             <IncButton
               textButton={increamentText}
               setCounter={setCounter}
@@ -24,9 +26,9 @@ export const Counter = () => {
               setCounter={setCounter}
             />
           </section>
-          <p className="mt-10 text-4xl">Counter : {counter}</p>
         </section>
-      </div>
-    </>
+      </main>
+      <Footer />
+    </div>
   );
 };
