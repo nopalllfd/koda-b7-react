@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from '../Counter/components/header';
 import Review from './Review';
 import { storeData } from './data';
-import { Table } from './Table';
+import { Card } from './Card';
 import { getData } from './data';
 import Footer from '../Counter/components/Footer';
 
@@ -21,7 +21,7 @@ function Home() {
         <Header />
         <main className="flex-1 flex flex-col items-center pt-10 px-4 gap-8">
           <Review onAddData={onAddData} />
-          <Table datas={data} />
+          <Card datas={data} />
         </main>
       </div>
       <Footer />

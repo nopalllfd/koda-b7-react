@@ -1,4 +1,4 @@
-export const Table = ({ datas }) => {
+export const Card = ({ datas }) => {
   return (
     <div className="w-full max-w-5xl grid grid-cols-4 gap-4">
       {datas.length ? (
