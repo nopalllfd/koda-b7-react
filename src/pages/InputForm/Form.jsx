@@ -30,7 +30,7 @@ export const Form = ({ onAddProduct }) => {
       action=""
       className=""
     >
-      <div className="input-group justify-start absolute top-70 left-50 flex flex-col gap-2 flex-1">
+      <div className="input-group justify-start absolute top-60 left-50 flex flex-col gap-2 flex-1">
         <label htmlFor="name">Nama Produk : </label>
         <input
           type="text"
