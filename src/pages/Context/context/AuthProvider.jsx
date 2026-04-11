@@ -1,8 +1,6 @@
 import AuthContext from './AuthContext';
 import { useLocalStorage } from '../hooks/useLocalStorage.js';
 
-
-
 export const AuthProvider = ({ children }) => {
   const key = 'user';
   const { data, insertData, deleteData, updateData } = useLocalStorage(key);
