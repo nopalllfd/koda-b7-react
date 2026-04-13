@@ -1,21 +1,28 @@
-export const Form = ({ form, setForm, onAdd, onSave, editId }) => {
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedProduct } from '../redux/slice/productSlice';
 
+export const Form = ({ onAdd, onSave }) => {
+  let selectedProduct = useSelector((state) => state.selectedProduct);
+
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    dispatch(
+      setSelectedProduct({
+        ...selectedProduct,
+        [e.target.name]: e.target.value,
+      }),
+    );
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (editId) {
+    if (selectedProduct.id) {
       onSave();
     } else {
       onAdd();
     }
   };
-
   return (
     <form onSubmit={handleSubmit} className="max-w-md p-6 bg-amber-50 border border-amber-200 rounded-lg w-full">
       <div className="flex flex-col gap-4">
@@ -24,7 +31,7 @@ export const Form = ({ form, setForm, onAdd, onSave, editId }) => {
           <input
             type="text"
             name="name"
-            value={form.name}
+            value={selectedProduct.name}
             onChange={handleChange}
             required
             className="border border-gray-300 rounded-md px-3 py-2 text-sm outline-none"
@@ -36,7 +43,7 @@ export const Form = ({ form, setForm, onAdd, onSave, editId }) => {
           <input
             type="number"
             name="qty"
-            value={form.qty}
+            value={selectedProduct.qty}
             onChange={handleChange}
             required
             className="border border-gray-300 rounded-md px-3 py-2 text-sm outline-none"
@@ -47,7 +54,7 @@ export const Form = ({ form, setForm, onAdd, onSave, editId }) => {
           <label className="text-sm font-semibold text-gray-800">Kategori :</label>
           <select
             name="category"
-            value={form.category}
+            value={selectedProduct.category}
             onChange={handleChange}
             className="border border-gray-300 rounded-md px-3 py-2 text-sm outline-none bg-white"
           >
@@ -62,7 +69,7 @@ export const Form = ({ form, setForm, onAdd, onSave, editId }) => {
 
         <div className="pt-2">
           <button type="submit" className="w-full bg-amber-600 text-white font-semibold py-2 rounded-md text-sm cursor-pointer">
-            {editId ? 'Simpan Perubahan' : 'Masukkan Barang'}
+            {selectedProduct.id ? 'Simpan Perubahan' : 'Masukkan Barang'}
           </button>
         </div>
       </div>

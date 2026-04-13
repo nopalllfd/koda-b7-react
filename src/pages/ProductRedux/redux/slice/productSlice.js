@@ -17,15 +17,17 @@ const productSlice = createSlice({
   reducers: {
     addProduct: (state, { payload }) => {
       console.log(payload);
-      state.products.push(payload);
+      setTimeout(() => {
+        state.products.push(payload);
+      }, 1000);
     },
     removeProduct: (state, { payload }) => {
       console.log(payload.id);
       state.products = state.products.filter((product) => product.id !== payload.id);
     },
     updateProduct: (state, { payload }) => {
-      const oldData = state.products.filter((product) => product.id == payload.id);
-      console.log(oldData);
+      const index = state.products.findIndex((product) => product.id == payload.id);
+      state.products[index] = payload;
     },
     setSelectedProduct: (state, { payload }) => {
       state.selectedProduct = payload;
