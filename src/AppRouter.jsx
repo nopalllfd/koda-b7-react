@@ -11,6 +11,8 @@ import { LoginPage } from './pages/Context/pages/Login';
 import AuthLayout from './pages/Context/layouts/AuthLayout';
 import Profile from './pages/Context/pages/Profile';
 import EditProfile from './pages/Context/pages/EditProfile';
+import SurveyPerokok from './pages/suerveyPerokok/page';
+import { InputFormRedux } from './pages/ProductRedux/InputForm';
 
 function AppRouter() {
   return (
@@ -18,10 +20,12 @@ function AppRouter() {
       <Route path="/" element={<Home />} />
       <Route path="counter" element={<Counter />} />
       <Route path="form" element={<InputForm />} />
+      <Route path="form/redux" element={<InputFormRedux />} />
       <Route path="pokemon" element={<Pokemon />} />
       <Route path="characters" element={<RickNMorty />} />
       <Route path="characters/:id/:slug" element={<CharacterDetail />} />
       <Route path="usefetch" element={<CustomHooks />}></Route>
+      <Route path="survey" element={<SurveyPerokok />}></Route>
       <Route path="auth" element={<AuthLayout />}>
         <Route path="login" element={<LoginPage />} />
         <Route path="profile" element={<Profile />} />

@@ -1,0 +1,1 @@
+kredensial = username : Nopal & pwd : 12345
